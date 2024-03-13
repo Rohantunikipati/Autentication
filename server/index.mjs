@@ -29,3 +29,15 @@ app.use("/api/auth",authRoute);
 app.listen(port, () => {
   console.log(`Server is running at port ${port}`);
 });
+//Error MiddleWares
+
+app.use((err,req,res,next)=>{
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Sevrer Error";
+
+  return res.status(statusCode).json({
+    success:"false",
+    statusCode,
+    message
+  })
+})
