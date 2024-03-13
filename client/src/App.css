@@ -46,7 +46,7 @@ nav {
       padding: 15px 10px;
       border-radius: 10px;
       font-size: 15px;
-      background-color: lightgray;
+      background-color: #F1F5FB;
     }
 
     button {
@@ -55,7 +55,7 @@ nav {
       border-radius: 10px;
       font-size: 20px;
       text-transform: uppercase;
-      background-color: slategray;
+      background-color: #304057;
       color: white;
       cursor: pointer;
       transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
