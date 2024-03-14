@@ -18,13 +18,16 @@ export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   try {
     const valid_user = await User.findOne({ email });
-    if (!valid_user) return next( errorHandler(404, 'invalid user'));
-    const valid_password =  bcryptjs.compareSync(password, valid_user.password);
-    if (!valid_password) return next( errorHandler(401, 'invalid password'));
-    const { password : saltedPassword , ...rest } = valid_user._doc;
+    if (!valid_user) return next(errorHandler(404, "invalid user"));
+    const valid_password = bcryptjs.compareSync(password, valid_user.password);
+    if (!valid_password) return next(errorHandler(401, "invalid password"));
+    const { password: saltedPassword, ...rest } = valid_user._doc;
     const token = jwt.sign({ id: valid_user._id }, "secret_key");
-    const expiredate = new Date(Date.now() + 3600000)
-    res.cookie("access_token", token, { httpOnly: true, expires:expiredate }).status(200).json(rest);
+    const expiredate = new Date(Date.now() + 3600000);
+    res
+      .cookie("access_token", token, { httpOnly: true, expires: expiredate })
+      .status(200)
+      .json(rest);
   } catch (error) {
     next(error);
   }

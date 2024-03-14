@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   let HandleSubmit = async e => {
     e.preventDefault();
@@ -20,6 +21,7 @@ const SignUp = () => {
     });
     let data = await res.json();
     setLoading(false);
+    navigate("/signin");
   };
 
   return (
