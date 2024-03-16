@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { user_actions } from "../Redux";
 import { useDispatch, useSelector } from "react-redux";
+import OAuth from "../componets/OAuth";
 
 const SignUp = () => {
   // const [loading, setLoading] = useState(false);
@@ -46,7 +47,7 @@ const SignUp = () => {
         <input type="email" placeholder="Email" name="email" />
         <input type="password" placeholder="Password" name="password" />
         <button disabled={loading}>{loading ? "Loading..." : "Sign-In"}</button>
-        <a href="">Continue with Google</a>
+        <OAuth/>
       </form>
       <div className="info">
         <p>Dont Have an account ?</p>

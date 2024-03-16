@@ -14,6 +14,10 @@ const userScheme = new mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    photo:{
+        type:String,
+        default:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/800px-Default_pfp.svg.png"
     }
 },{timestamps:true});
 

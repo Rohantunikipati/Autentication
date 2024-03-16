@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link , useNavigate } from "react-router-dom";
+import OAuth from "../componets/OAuth";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,7 @@ const SignUp = () => {
     let dataObject = Object.fromEntries(new FormData(e.currentTarget));
     console.log(dataObject);
 
-    e.currentTarget.reset();
+    // e.currentTarget.reset();
     setLoading(true);
     let res = await fetch("/api/auth/signup", {
       method: "POST",
@@ -32,7 +33,7 @@ const SignUp = () => {
         <input type="email" placeholder="Email" name="email" />
         <input type="password" placeholder="Password" name="password" />
         <button disabled={loading}>{loading ? "Loading..." : "Sign-Up"}</button>
-        <a href="">Continue with Google</a>
+        <OAuth/>
       </form>
       <div className="info">
         <p>Have an account ?</p>
