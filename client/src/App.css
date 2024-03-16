@@ -12,10 +12,18 @@ nav {
     font-weight: 600;
   }
 
+  img{
+    width: 45px;
+    height: 45px;
+    border: 50%;
+    object-fit: cover;
+  }
+
   ul {
     display: flex;
     width: 30%;
     font-size: 20px;
+    align-items: center;
     justify-content: space-evenly;
 
     li {
