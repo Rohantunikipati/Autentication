@@ -42,6 +42,11 @@ nav {
   justify-content: center;
   align-items: center;
 
+  img{
+    width: 10vw;
+    margin-block: 15px;
+  }
+
   form {
     display: flex;
     flex-direction: column;
